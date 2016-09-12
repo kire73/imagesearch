@@ -1,22 +1,8 @@
+<h1>Image Search Abstraction layer</h1><br>
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
-
-
-Welcome to your Node.js project on Cloud9 IDE!
-
-This chat example showcases how to use `socket.io` with a static `express` server.
-
-## Running the server
-
-1) Open `server.js` and start the app by clicking on the "Run" button in the top menu.
-
-2) Alternatively you can launch the app from the Terminal:
-
-    $ node server.js
-
-Once the server is running, open the project in the shape of 'https://projectname-username.c9.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.
+<h3>Search Images by formatting the URL:</h3><br>
+<p>https://imagesearch-evilloria.c9users.io/api/imagesearch/pictures of cats</p><br>
+<h5>Paginate your search results by including the option:</h5><br>
+<p>?offset=10</p><br>
+<h3>Browse Recent Searches:</h3><br>
+<p>https://imagesearch-evilloria.c9users.io/api/latest/imagesearch/</p>
