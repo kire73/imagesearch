@@ -1,5 +1,4 @@
 // Image Search Abstraction Layer
-var bbb = require('./finder.js');
 require('dotenv').config();
 var express = require('express');
 var app = express();
@@ -23,11 +22,22 @@ var readable;
 var pastSearches = [];
 
 
+
 app.get('/api/imagesearch/:encodedid', function(req, res){
     var search = req.params.encodedid;
     console.log('User search: ' + search);
     var when = new Date();
-    var page = 5;
+    var page = 0;
+    
+    if (req.query.offset){
+        page = req.query.offset;
+        console.log('Searches per page: ' + page);
+    } else {
+        console.log('Default to 5 entries::');
+        page = 5;
+    }
+    
+    
     var results = imageSearch(search, callback, 0, page);
     
     function callback(results) {
@@ -44,14 +54,13 @@ app.get('/api/imagesearch/:encodedid', function(req, res){
         console.log('Success: ' + readable);
         res.send(readable);
     }
-    console.log('ENDRESULTS: ' + readable);
+    console.log('Last search: ' + pastSearches);
     pastSearches += JSON.stringify({search,when});
 });
 
 app.get('/api/latest/imagesearch/', function(req, res){
     console.log('User requested history: ' + pastSearches);
   res.send(pastSearches);  
-//    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
  app.listen(process.env.PORT, function () {
